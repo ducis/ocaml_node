@@ -1,4 +1,4 @@
 ocaml_node
 ==========
 
-An OCaml library to implement Erlang nodes.
+An OCaml library to implement Erlang nodes with.
