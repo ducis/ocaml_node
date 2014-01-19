@@ -993,3 +993,23 @@ CAMLprim value caml_erl_epmd_port( value inaddr, value alive, value dist ){
 	CAMLparam3( inaddr, alive, dist );
 	CAMLreturn(Val_int(erl_epmd_port(( struct in_addr * )( Nativeint_val(inaddr) ), ( char const   * )( Nativeint_val(alive) ), ( int * )( Nativeint_val(dist) ))));
 }
+CAMLprim caml_rd_char( value x ){
+}
+CAMLprim caml_wt_char( value p, value x ){
+}
+CAMLprim caml_rd_int( value x ){
+}
+CAMLprim caml_wt_int( value p, value x ){
+}
+CAMLprim caml_rd_long( value x ){
+}
+CAMLprim caml_wt_long( value p, value x ){
+}
+CAMLprim caml_rd_double( value x ){
+}
+CAMLprim caml_wt_double( value p, value x ){
+}
+CAMLprim caml_rd_long_long( value x ){
+}
+CAMLprim caml_wt_long_long( value p, value x ){
+}
