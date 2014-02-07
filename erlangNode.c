@@ -993,23 +993,1273 @@ CAMLprim value caml_erl_epmd_port( value inaddr, value alive, value dist ){
 	CAMLparam3( inaddr, alive, dist );
 	CAMLreturn(Val_int(erl_epmd_port(( struct in_addr * )( Nativeint_val(inaddr) ), ( char const   * )( Nativeint_val(alive) ), ( int * )( Nativeint_val(dist) ))));
 }
-CAMLprim caml_rd_char( value x ){
+CAMLprim value caml_rd_char( value p ){
+	CAMLparam1( p );
+	CAMLreturn( Val_int(*(char*)(Nativeint_val(p))) );
 }
-CAMLprim caml_wt_char( value p, value x ){
+CAMLprim value caml_wt_char( value p, value x ){
+	CAMLparam2( p, x );
+	(*(char*)(Nativeint_val(p))) = Int_val(x);
+	CAMLreturn( Val_unit );
 }
-CAMLprim caml_rd_int( value x ){
+CAMLprim value caml_rd_int( value p ){
+	CAMLparam1( p );
+	CAMLreturn( Val_int(*(int*)(Nativeint_val(p))) );
 }
-CAMLprim caml_wt_int( value p, value x ){
+CAMLprim value caml_wt_int( value p, value x ){
+	CAMLparam2( p, x );
+	(*(int*)(Nativeint_val(p))) = Int_val(x);
+	CAMLreturn( Val_unit );
 }
-CAMLprim caml_rd_long( value x ){
+CAMLprim value caml_rd_long( value p ){
+	CAMLparam1( p );
+	CAMLreturn( Val_int(*(long*)(Nativeint_val(p))) );
 }
-CAMLprim caml_wt_long( value p, value x ){
+CAMLprim value caml_wt_long( value p, value x ){
+	CAMLparam2( p, x );
+	(*(long*)(Nativeint_val(p))) = Int_val(x);
+	CAMLreturn( Val_unit );
 }
-CAMLprim caml_rd_double( value x ){
+CAMLprim value caml_rd_short( value p ){
+	CAMLparam1( p );
+	CAMLreturn( Val_int(*(short*)(Nativeint_val(p))) );
 }
-CAMLprim caml_wt_double( value p, value x ){
+CAMLprim value caml_wt_short( value p, value x ){
+	CAMLparam2( p, x );
+	(*(short*)(Nativeint_val(p))) = Int_val(x);
+	CAMLreturn( Val_unit );
 }
-CAMLprim caml_rd_long_long( value x ){
+CAMLprim value caml_rd_double( value p ){
+	CAMLparam1( p );
+	CAMLreturn( caml_copy_double(*(double*)(Nativeint_val(p))) );
 }
-CAMLprim caml_wt_long_long( value p, value x ){
+CAMLprim value caml_wt_double( value p, value x ){
+	CAMLparam2( p, x );
+	(*(double*)(Nativeint_val(p))) = Double_val(x);
+	CAMLreturn( Val_unit );
+}
+CAMLprim value caml_rd_long_long( value p ){
+	CAMLparam1( p );
+	CAMLreturn( caml_copy_int64(*(long long*)(Nativeint_val(p))) );
+}
+CAMLprim value caml_wt_long_long( value p, value x ){
+	CAMLparam2( p, x );
+	(*(long long*)(Nativeint_val(p))) = Int64_val(x);
+	CAMLreturn( Val_unit );
+}
+CAMLprim value caml_p___fsid_t___val( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((__fsid_t*)(Nativeint_val(x)))->__val) );
+}
+CAMLprim value caml_p___mbstate_t___count( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((__mbstate_t*)(Nativeint_val(x)))->__count) );
+}
+CAMLprim value caml_p___mbstate_t___value( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((__mbstate_t*)(Nativeint_val(x)))->__value) );
+}
+CAMLprim value caml_p__G_fpos_t___pos( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((_G_fpos_t*)(Nativeint_val(x)))->__pos) );
+}
+CAMLprim value caml_p__G_fpos_t___state( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((_G_fpos_t*)(Nativeint_val(x)))->__state) );
+}
+CAMLprim value caml_p__G_fpos64_t___pos( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((_G_fpos64_t*)(Nativeint_val(x)))->__pos) );
+}
+CAMLprim value caml_p__G_fpos64_t___state( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((_G_fpos64_t*)(Nativeint_val(x)))->__state) );
+}
+CAMLprim value caml_p___sigset_t___val( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((__sigset_t*)(Nativeint_val(x)))->__val) );
+}
+CAMLprim value caml_p_fd_set___fds_bits( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((fd_set*)(Nativeint_val(x)))->__fds_bits) );
+}
+CAMLprim value caml_p_pthread_mutex_t___data( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_mutex_t*)(Nativeint_val(x)))->__data) );
+}
+CAMLprim value caml_p_pthread_mutex_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_mutex_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_mutex_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_mutex_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_pthread_mutexattr_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_mutexattr_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_mutexattr_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_mutexattr_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_pthread_cond_t___data( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_cond_t*)(Nativeint_val(x)))->__data) );
+}
+CAMLprim value caml_p_pthread_cond_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_cond_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_cond_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_cond_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_pthread_condattr_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_condattr_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_condattr_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_condattr_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_pthread_rwlock_t___data( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_rwlock_t*)(Nativeint_val(x)))->__data) );
+}
+CAMLprim value caml_p_pthread_rwlock_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_rwlock_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_rwlock_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_rwlock_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_pthread_rwlockattr_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_rwlockattr_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_rwlockattr_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_rwlockattr_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_pthread_barrier_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_barrier_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_barrier_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_barrier_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_pthread_barrierattr_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_barrierattr_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_barrierattr_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((pthread_barrierattr_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p_erlang_pid_node( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_pid*)(Nativeint_val(x)))->node) );
+}
+CAMLprim value caml_p_erlang_pid_num( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_pid*)(Nativeint_val(x)))->num) );
+}
+CAMLprim value caml_p_erlang_pid_serial( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_pid*)(Nativeint_val(x)))->serial) );
+}
+CAMLprim value caml_p_erlang_pid_creation( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_pid*)(Nativeint_val(x)))->creation) );
+}
+CAMLprim value caml_p_erlang_port_node( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_port*)(Nativeint_val(x)))->node) );
+}
+CAMLprim value caml_p_erlang_port_id( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_port*)(Nativeint_val(x)))->id) );
+}
+CAMLprim value caml_p_erlang_port_creation( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_port*)(Nativeint_val(x)))->creation) );
+}
+CAMLprim value caml_p_erlang_ref_node( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_ref*)(Nativeint_val(x)))->node) );
+}
+CAMLprim value caml_p_erlang_ref_len( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_ref*)(Nativeint_val(x)))->len) );
+}
+CAMLprim value caml_p_erlang_ref_n( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_ref*)(Nativeint_val(x)))->n) );
+}
+CAMLprim value caml_p_erlang_ref_creation( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_ref*)(Nativeint_val(x)))->creation) );
+}
+CAMLprim value caml_p_erlang_trace_serial( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_trace*)(Nativeint_val(x)))->serial) );
+}
+CAMLprim value caml_p_erlang_trace_prev( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_trace*)(Nativeint_val(x)))->prev) );
+}
+CAMLprim value caml_p_erlang_trace_from( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_trace*)(Nativeint_val(x)))->from) );
+}
+CAMLprim value caml_p_erlang_trace_label( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_trace*)(Nativeint_val(x)))->label) );
+}
+CAMLprim value caml_p_erlang_trace_flags( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_trace*)(Nativeint_val(x)))->flags) );
+}
+CAMLprim value caml_p_erlang_msg_msgtype( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_msg*)(Nativeint_val(x)))->msgtype) );
+}
+CAMLprim value caml_p_erlang_msg_from( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_msg*)(Nativeint_val(x)))->from) );
+}
+CAMLprim value caml_p_erlang_msg_to( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_msg*)(Nativeint_val(x)))->to) );
+}
+CAMLprim value caml_p_erlang_msg_toname( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_msg*)(Nativeint_val(x)))->toname) );
+}
+CAMLprim value caml_p_erlang_msg_cookie( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_msg*)(Nativeint_val(x)))->cookie) );
+}
+CAMLprim value caml_p_erlang_msg_token( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_msg*)(Nativeint_val(x)))->token) );
+}
+CAMLprim value caml_p_erlang_fun_arity( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->arity) );
+}
+CAMLprim value caml_p_erlang_fun_module( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->module) );
+}
+CAMLprim value caml_p_erlang_fun_module_org_enc( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->module_org_enc) );
+}
+CAMLprim value caml_p_erlang_fun_md5( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->md5) );
+}
+CAMLprim value caml_p_erlang_fun_index( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->index) );
+}
+CAMLprim value caml_p_erlang_fun_old_index( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->old_index) );
+}
+CAMLprim value caml_p_erlang_fun_uniq( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->uniq) );
+}
+CAMLprim value caml_p_erlang_fun_n_free_vars( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->n_free_vars) );
+}
+CAMLprim value caml_p_erlang_fun_pid( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->pid) );
+}
+CAMLprim value caml_p_erlang_fun_free_var_len( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->free_var_len) );
+}
+CAMLprim value caml_p_erlang_fun_free_vars( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_fun*)(Nativeint_val(x)))->free_vars) );
+}
+CAMLprim value caml_p_erlang_big_arity( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_big*)(Nativeint_val(x)))->arity) );
+}
+CAMLprim value caml_p_erlang_big_is_neg( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_big*)(Nativeint_val(x)))->is_neg) );
+}
+CAMLprim value caml_p_erlang_big_digits( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((erlang_big*)(Nativeint_val(x)))->digits) );
+}
+CAMLprim value caml_p_ei_term_ei_type( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_term*)(Nativeint_val(x)))->ei_type) );
+}
+CAMLprim value caml_p_ei_term_arity( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_term*)(Nativeint_val(x)))->arity) );
+}
+CAMLprim value caml_p_ei_term_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_term*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_ei_term_value( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_term*)(Nativeint_val(x)))->value) );
+}
+CAMLprim value caml_p_ErlConnect_ipadr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ErlConnect*)(Nativeint_val(x)))->ipadr) );
+}
+CAMLprim value caml_p_ErlConnect_nodename( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ErlConnect*)(Nativeint_val(x)))->nodename) );
+}
+CAMLprim value caml_p_ei_hash_tab( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_hash*)(Nativeint_val(x)))->tab) );
+}
+CAMLprim value caml_p_ei_hash_hash( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_hash*)(Nativeint_val(x)))->hash) );
+}
+CAMLprim value caml_p_ei_hash_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_hash*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_ei_hash_nelem( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_hash*)(Nativeint_val(x)))->nelem) );
+}
+CAMLprim value caml_p_ei_hash_npos( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_hash*)(Nativeint_val(x)))->npos) );
+}
+CAMLprim value caml_p_ei_hash_freelist( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_hash*)(Nativeint_val(x)))->freelist) );
+}
+CAMLprim value caml_p_ei_reg_freelist( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_reg*)(Nativeint_val(x)))->freelist) );
+}
+CAMLprim value caml_p_ei_reg_tab( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ei_reg*)(Nativeint_val(x)))->tab) );
+}
+CAMLprim value caml_p_Erl_Integer_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Integer*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Integer_i( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Integer*)(Nativeint_val(x)))->i) );
+}
+CAMLprim value caml_p_Erl_Uinteger_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Uinteger*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Uinteger_u( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Uinteger*)(Nativeint_val(x)))->u) );
+}
+CAMLprim value caml_p_Erl_LLInteger_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_LLInteger*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_LLInteger_i( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_LLInteger*)(Nativeint_val(x)))->i) );
+}
+CAMLprim value caml_p_Erl_ULLInteger_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_ULLInteger*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_ULLInteger_u( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_ULLInteger*)(Nativeint_val(x)))->u) );
+}
+CAMLprim value caml_p_Erl_Float_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Float*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Float_f( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Float*)(Nativeint_val(x)))->f) );
+}
+CAMLprim value caml_p_Erl_Atom_data_utf8( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Atom_data*)(Nativeint_val(x)))->utf8) );
+}
+CAMLprim value caml_p_Erl_Atom_data_lenU( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Atom_data*)(Nativeint_val(x)))->lenU) );
+}
+CAMLprim value caml_p_Erl_Atom_data_latin1( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Atom_data*)(Nativeint_val(x)))->latin1) );
+}
+CAMLprim value caml_p_Erl_Atom_data_lenL( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Atom_data*)(Nativeint_val(x)))->lenL) );
+}
+CAMLprim value caml_p_Erl_Atom_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Atom*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Atom_d( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Atom*)(Nativeint_val(x)))->d) );
+}
+CAMLprim value caml_p_Erl_Pid_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Pid*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Pid_node( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Pid*)(Nativeint_val(x)))->node) );
+}
+CAMLprim value caml_p_Erl_Pid_number( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Pid*)(Nativeint_val(x)))->number) );
+}
+CAMLprim value caml_p_Erl_Pid_serial( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Pid*)(Nativeint_val(x)))->serial) );
+}
+CAMLprim value caml_p_Erl_Pid_creation( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Pid*)(Nativeint_val(x)))->creation) );
+}
+CAMLprim value caml_p_Erl_Port_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Port*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Port_node( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Port*)(Nativeint_val(x)))->node) );
+}
+CAMLprim value caml_p_Erl_Port_number( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Port*)(Nativeint_val(x)))->number) );
+}
+CAMLprim value caml_p_Erl_Port_creation( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Port*)(Nativeint_val(x)))->creation) );
+}
+CAMLprim value caml_p_Erl_Ref_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Ref*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Ref_node( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Ref*)(Nativeint_val(x)))->node) );
+}
+CAMLprim value caml_p_Erl_Ref_len( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Ref*)(Nativeint_val(x)))->len) );
+}
+CAMLprim value caml_p_Erl_Ref_n( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Ref*)(Nativeint_val(x)))->n) );
+}
+CAMLprim value caml_p_Erl_Ref_creation( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Ref*)(Nativeint_val(x)))->creation) );
+}
+CAMLprim value caml_p_Erl_Big_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Big*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Big_arity( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Big*)(Nativeint_val(x)))->arity) );
+}
+CAMLprim value caml_p_Erl_Big_is_neg( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Big*)(Nativeint_val(x)))->is_neg) );
+}
+CAMLprim value caml_p_Erl_Big_digits( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Big*)(Nativeint_val(x)))->digits) );
+}
+CAMLprim value caml_p_Erl_List_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_List*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_List_head( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_List*)(Nativeint_val(x)))->head) );
+}
+CAMLprim value caml_p_Erl_List_tail( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_List*)(Nativeint_val(x)))->tail) );
+}
+CAMLprim value caml_p_Erl_EmptyList_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_EmptyList*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Tuple_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Tuple*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Tuple_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Tuple*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_Erl_Tuple_elems( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Tuple*)(Nativeint_val(x)))->elems) );
+}
+CAMLprim value caml_p_Erl_Binary_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Binary*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Binary_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Binary*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_Erl_Binary_b( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Binary*)(Nativeint_val(x)))->b) );
+}
+CAMLprim value caml_p_Erl_Variable_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Variable*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Variable_len( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Variable*)(Nativeint_val(x)))->len) );
+}
+CAMLprim value caml_p_Erl_Variable_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Variable*)(Nativeint_val(x)))->name) );
+}
+CAMLprim value caml_p_Erl_Variable_v( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Variable*)(Nativeint_val(x)))->v) );
+}
+CAMLprim value caml_p_Erl_Function_h( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->h) );
+}
+CAMLprim value caml_p_Erl_Function_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_Erl_Function_arity( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->arity) );
+}
+CAMLprim value caml_p_Erl_Function_md5( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->md5) );
+}
+CAMLprim value caml_p_Erl_Function_new_index( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->new_index) );
+}
+CAMLprim value caml_p_Erl_Function_creator( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->creator) );
+}
+CAMLprim value caml_p_Erl_Function_module( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->module) );
+}
+CAMLprim value caml_p_Erl_Function_index( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->index) );
+}
+CAMLprim value caml_p_Erl_Function_uniq( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->uniq) );
+}
+CAMLprim value caml_p_Erl_Function_closure( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((Erl_Function*)(Nativeint_val(x)))->closure) );
+}
+CAMLprim value caml_p_ErlMessage_type( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ErlMessage*)(Nativeint_val(x)))->type) );
+}
+CAMLprim value caml_p_ErlMessage_msg( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ErlMessage*)(Nativeint_val(x)))->msg) );
+}
+CAMLprim value caml_p_ErlMessage_from( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ErlMessage*)(Nativeint_val(x)))->from) );
+}
+CAMLprim value caml_p_ErlMessage_to( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ErlMessage*)(Nativeint_val(x)))->to) );
+}
+CAMLprim value caml_p_ErlMessage_to_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((ErlMessage*)(Nativeint_val(x)))->to_name) );
+}
+CAMLprim value caml_p__IO_marker__next( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_marker*)(Nativeint_val(x)))->_next) );
+}
+CAMLprim value caml_p__IO_marker__sbuf( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_marker*)(Nativeint_val(x)))->_sbuf) );
+}
+CAMLprim value caml_p__IO_marker__pos( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_marker*)(Nativeint_val(x)))->_pos) );
+}
+CAMLprim value caml_p__IO_FILE__flags( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_flags) );
+}
+CAMLprim value caml_p__IO_FILE__IO_read_ptr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_read_ptr) );
+}
+CAMLprim value caml_p__IO_FILE__IO_read_end( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_read_end) );
+}
+CAMLprim value caml_p__IO_FILE__IO_read_base( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_read_base) );
+}
+CAMLprim value caml_p__IO_FILE__IO_write_base( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_write_base) );
+}
+CAMLprim value caml_p__IO_FILE__IO_write_ptr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_write_ptr) );
+}
+CAMLprim value caml_p__IO_FILE__IO_write_end( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_write_end) );
+}
+CAMLprim value caml_p__IO_FILE__IO_buf_base( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_buf_base) );
+}
+CAMLprim value caml_p__IO_FILE__IO_buf_end( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_buf_end) );
+}
+CAMLprim value caml_p__IO_FILE__IO_save_base( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_save_base) );
+}
+CAMLprim value caml_p__IO_FILE__IO_backup_base( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_backup_base) );
+}
+CAMLprim value caml_p__IO_FILE__IO_save_end( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_IO_save_end) );
+}
+CAMLprim value caml_p__IO_FILE__markers( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_markers) );
+}
+CAMLprim value caml_p__IO_FILE__chain( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_chain) );
+}
+CAMLprim value caml_p__IO_FILE__fileno( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_fileno) );
+}
+CAMLprim value caml_p__IO_FILE__flags2( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_flags2) );
+}
+CAMLprim value caml_p__IO_FILE__old_offset( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_old_offset) );
+}
+CAMLprim value caml_p__IO_FILE__cur_column( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_cur_column) );
+}
+CAMLprim value caml_p__IO_FILE__vtable_offset( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_vtable_offset) );
+}
+CAMLprim value caml_p__IO_FILE__shortbuf( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_shortbuf) );
+}
+CAMLprim value caml_p__IO_FILE__lock( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_lock) );
+}
+CAMLprim value caml_p__IO_FILE__offset( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_offset) );
+}
+CAMLprim value caml_p__IO_FILE___pad1( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->__pad1) );
+}
+CAMLprim value caml_p__IO_FILE___pad2( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->__pad2) );
+}
+CAMLprim value caml_p__IO_FILE___pad3( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->__pad3) );
+}
+CAMLprim value caml_p__IO_FILE___pad4( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->__pad4) );
+}
+CAMLprim value caml_p__IO_FILE___pad5( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->__pad5) );
+}
+CAMLprim value caml_p__IO_FILE__mode( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_mode) );
+}
+CAMLprim value caml_p__IO_FILE__unused2( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _IO_FILE*)(Nativeint_val(x)))->_unused2) );
+}
+CAMLprim value caml_p_timespec_tv_sec( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct timespec*)(Nativeint_val(x)))->tv_sec) );
+}
+CAMLprim value caml_p_timespec_tv_nsec( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct timespec*)(Nativeint_val(x)))->tv_nsec) );
+}
+CAMLprim value caml_p_timeval_tv_sec( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct timeval*)(Nativeint_val(x)))->tv_sec) );
+}
+CAMLprim value caml_p_timeval_tv_usec( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct timeval*)(Nativeint_val(x)))->tv_usec) );
+}
+CAMLprim value caml_p_pthread_attr_t___size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((union pthread_attr_t*)(Nativeint_val(x)))->__size) );
+}
+CAMLprim value caml_p_pthread_attr_t___align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((union pthread_attr_t*)(Nativeint_val(x)))->__align) );
+}
+CAMLprim value caml_p___pthread_internal_list___prev( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_internal_list*)(Nativeint_val(x)))->__prev) );
+}
+CAMLprim value caml_p___pthread_internal_list___next( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_internal_list*)(Nativeint_val(x)))->__next) );
+}
+CAMLprim value caml_p___pthread_mutex_s___lock( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__lock) );
+}
+CAMLprim value caml_p___pthread_mutex_s___count( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__count) );
+}
+CAMLprim value caml_p___pthread_mutex_s___owner( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__owner) );
+}
+CAMLprim value caml_p___pthread_mutex_s___nusers( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__nusers) );
+}
+CAMLprim value caml_p___pthread_mutex_s___kind( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__kind) );
+}
+CAMLprim value caml_p___pthread_mutex_s___spins( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__spins) );
+}
+CAMLprim value caml_p___pthread_mutex_s___elision( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__elision) );
+}
+CAMLprim value caml_p___pthread_mutex_s___list( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__list) );
+}
+CAMLprim value caml_p_iovec_iov_base( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct iovec*)(Nativeint_val(x)))->iov_base) );
+}
+CAMLprim value caml_p_iovec_iov_len( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct iovec*)(Nativeint_val(x)))->iov_len) );
+}
+CAMLprim value caml_p_sockaddr_sa_family( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr*)(Nativeint_val(x)))->sa_family) );
+}
+CAMLprim value caml_p_sockaddr_sa_data( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr*)(Nativeint_val(x)))->sa_data) );
+}
+CAMLprim value caml_p_sockaddr_storage_ss_family( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_storage*)(Nativeint_val(x)))->ss_family) );
+}
+CAMLprim value caml_p_sockaddr_storage___ss_align( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_storage*)(Nativeint_val(x)))->__ss_align) );
+}
+CAMLprim value caml_p_sockaddr_storage___ss_padding( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_storage*)(Nativeint_val(x)))->__ss_padding) );
+}
+CAMLprim value caml_p_msghdr_msg_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct msghdr*)(Nativeint_val(x)))->msg_name) );
+}
+CAMLprim value caml_p_msghdr_msg_namelen( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct msghdr*)(Nativeint_val(x)))->msg_namelen) );
+}
+CAMLprim value caml_p_msghdr_msg_iov( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct msghdr*)(Nativeint_val(x)))->msg_iov) );
+}
+CAMLprim value caml_p_msghdr_msg_iovlen( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct msghdr*)(Nativeint_val(x)))->msg_iovlen) );
+}
+CAMLprim value caml_p_msghdr_msg_control( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct msghdr*)(Nativeint_val(x)))->msg_control) );
+}
+CAMLprim value caml_p_msghdr_msg_controllen( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct msghdr*)(Nativeint_val(x)))->msg_controllen) );
+}
+CAMLprim value caml_p_msghdr_msg_flags( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct msghdr*)(Nativeint_val(x)))->msg_flags) );
+}
+CAMLprim value caml_p_cmsghdr_cmsg_len( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct cmsghdr*)(Nativeint_val(x)))->cmsg_len) );
+}
+CAMLprim value caml_p_cmsghdr_cmsg_level( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct cmsghdr*)(Nativeint_val(x)))->cmsg_level) );
+}
+CAMLprim value caml_p_cmsghdr_cmsg_type( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct cmsghdr*)(Nativeint_val(x)))->cmsg_type) );
+}
+CAMLprim value caml_p_cmsghdr___cmsg_data( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct cmsghdr*)(Nativeint_val(x)))->__cmsg_data) );
+}
+CAMLprim value caml_p_linger_l_onoff( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct linger*)(Nativeint_val(x)))->l_onoff) );
+}
+CAMLprim value caml_p_linger_l_linger( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct linger*)(Nativeint_val(x)))->l_linger) );
+}
+CAMLprim value caml_p_osockaddr_sa_family( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct osockaddr*)(Nativeint_val(x)))->sa_family) );
+}
+CAMLprim value caml_p_osockaddr_sa_data( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct osockaddr*)(Nativeint_val(x)))->sa_data) );
+}
+CAMLprim value caml_p_in_addr_s_addr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct in_addr*)(Nativeint_val(x)))->s_addr) );
+}
+CAMLprim value caml_p_in6_addr___in6_u( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct in6_addr*)(Nativeint_val(x)))->__in6_u) );
+}
+CAMLprim value caml_p_sockaddr_in_sin_family( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in*)(Nativeint_val(x)))->sin_family) );
+}
+CAMLprim value caml_p_sockaddr_in_sin_port( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in*)(Nativeint_val(x)))->sin_port) );
+}
+CAMLprim value caml_p_sockaddr_in_sin_addr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in*)(Nativeint_val(x)))->sin_addr) );
+}
+CAMLprim value caml_p_sockaddr_in_sin_zero( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in*)(Nativeint_val(x)))->sin_zero) );
+}
+CAMLprim value caml_p_sockaddr_in6_sin6_family( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in6*)(Nativeint_val(x)))->sin6_family) );
+}
+CAMLprim value caml_p_sockaddr_in6_sin6_port( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in6*)(Nativeint_val(x)))->sin6_port) );
+}
+CAMLprim value caml_p_sockaddr_in6_sin6_flowinfo( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in6*)(Nativeint_val(x)))->sin6_flowinfo) );
+}
+CAMLprim value caml_p_sockaddr_in6_sin6_addr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in6*)(Nativeint_val(x)))->sin6_addr) );
+}
+CAMLprim value caml_p_sockaddr_in6_sin6_scope_id( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct sockaddr_in6*)(Nativeint_val(x)))->sin6_scope_id) );
+}
+CAMLprim value caml_p_ip_mreq_imr_multiaddr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreq*)(Nativeint_val(x)))->imr_multiaddr) );
+}
+CAMLprim value caml_p_ip_mreq_imr_interface( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreq*)(Nativeint_val(x)))->imr_interface) );
+}
+CAMLprim value caml_p_ip_mreq_source_imr_multiaddr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreq_source*)(Nativeint_val(x)))->imr_multiaddr) );
+}
+CAMLprim value caml_p_ip_mreq_source_imr_interface( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreq_source*)(Nativeint_val(x)))->imr_interface) );
+}
+CAMLprim value caml_p_ip_mreq_source_imr_sourceaddr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreq_source*)(Nativeint_val(x)))->imr_sourceaddr) );
+}
+CAMLprim value caml_p_ipv6_mreq_ipv6mr_multiaddr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ipv6_mreq*)(Nativeint_val(x)))->ipv6mr_multiaddr) );
+}
+CAMLprim value caml_p_ipv6_mreq_ipv6mr_interface( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ipv6_mreq*)(Nativeint_val(x)))->ipv6mr_interface) );
+}
+CAMLprim value caml_p_group_req_gr_interface( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_req*)(Nativeint_val(x)))->gr_interface) );
+}
+CAMLprim value caml_p_group_req_gr_group( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_req*)(Nativeint_val(x)))->gr_group) );
+}
+CAMLprim value caml_p_group_source_req_gsr_interface( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_source_req*)(Nativeint_val(x)))->gsr_interface) );
+}
+CAMLprim value caml_p_group_source_req_gsr_group( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_source_req*)(Nativeint_val(x)))->gsr_group) );
+}
+CAMLprim value caml_p_group_source_req_gsr_source( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_source_req*)(Nativeint_val(x)))->gsr_source) );
+}
+CAMLprim value caml_p_ip_msfilter_imsf_multiaddr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_msfilter*)(Nativeint_val(x)))->imsf_multiaddr) );
+}
+CAMLprim value caml_p_ip_msfilter_imsf_interface( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_msfilter*)(Nativeint_val(x)))->imsf_interface) );
+}
+CAMLprim value caml_p_ip_msfilter_imsf_fmode( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_msfilter*)(Nativeint_val(x)))->imsf_fmode) );
+}
+CAMLprim value caml_p_ip_msfilter_imsf_numsrc( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_msfilter*)(Nativeint_val(x)))->imsf_numsrc) );
+}
+CAMLprim value caml_p_ip_msfilter_imsf_slist( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_msfilter*)(Nativeint_val(x)))->imsf_slist) );
+}
+CAMLprim value caml_p_group_filter_gf_interface( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_filter*)(Nativeint_val(x)))->gf_interface) );
+}
+CAMLprim value caml_p_group_filter_gf_group( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_filter*)(Nativeint_val(x)))->gf_group) );
+}
+CAMLprim value caml_p_group_filter_gf_fmode( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_filter*)(Nativeint_val(x)))->gf_fmode) );
+}
+CAMLprim value caml_p_group_filter_gf_numsrc( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_filter*)(Nativeint_val(x)))->gf_numsrc) );
+}
+CAMLprim value caml_p_group_filter_gf_slist( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct group_filter*)(Nativeint_val(x)))->gf_slist) );
+}
+CAMLprim value caml_p_ip_opts_ip_dst( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_opts*)(Nativeint_val(x)))->ip_dst) );
+}
+CAMLprim value caml_p_ip_opts_ip_opts( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_opts*)(Nativeint_val(x)))->ip_opts) );
+}
+CAMLprim value caml_p_ip_mreqn_imr_multiaddr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreqn*)(Nativeint_val(x)))->imr_multiaddr) );
+}
+CAMLprim value caml_p_ip_mreqn_imr_address( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreqn*)(Nativeint_val(x)))->imr_address) );
+}
+CAMLprim value caml_p_ip_mreqn_imr_ifindex( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ip_mreqn*)(Nativeint_val(x)))->imr_ifindex) );
+}
+CAMLprim value caml_p_in_pktinfo_ipi_ifindex( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct in_pktinfo*)(Nativeint_val(x)))->ipi_ifindex) );
+}
+CAMLprim value caml_p_in_pktinfo_ipi_spec_dst( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct in_pktinfo*)(Nativeint_val(x)))->ipi_spec_dst) );
+}
+CAMLprim value caml_p_in_pktinfo_ipi_addr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct in_pktinfo*)(Nativeint_val(x)))->ipi_addr) );
+}
+CAMLprim value caml_p_rpcent_r_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct rpcent*)(Nativeint_val(x)))->r_name) );
+}
+CAMLprim value caml_p_rpcent_r_aliases( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct rpcent*)(Nativeint_val(x)))->r_aliases) );
+}
+CAMLprim value caml_p_rpcent_r_number( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct rpcent*)(Nativeint_val(x)))->r_number) );
+}
+CAMLprim value caml_p_netent_n_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct netent*)(Nativeint_val(x)))->n_name) );
+}
+CAMLprim value caml_p_netent_n_aliases( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct netent*)(Nativeint_val(x)))->n_aliases) );
+}
+CAMLprim value caml_p_netent_n_addrtype( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct netent*)(Nativeint_val(x)))->n_addrtype) );
+}
+CAMLprim value caml_p_netent_n_net( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct netent*)(Nativeint_val(x)))->n_net) );
+}
+CAMLprim value caml_p_hostent_h_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct hostent*)(Nativeint_val(x)))->h_name) );
+}
+CAMLprim value caml_p_hostent_h_aliases( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct hostent*)(Nativeint_val(x)))->h_aliases) );
+}
+CAMLprim value caml_p_hostent_h_addrtype( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct hostent*)(Nativeint_val(x)))->h_addrtype) );
+}
+CAMLprim value caml_p_hostent_h_length( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct hostent*)(Nativeint_val(x)))->h_length) );
+}
+CAMLprim value caml_p_hostent_h_addr_list( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct hostent*)(Nativeint_val(x)))->h_addr_list) );
+}
+CAMLprim value caml_p_servent_s_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct servent*)(Nativeint_val(x)))->s_name) );
+}
+CAMLprim value caml_p_servent_s_aliases( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct servent*)(Nativeint_val(x)))->s_aliases) );
+}
+CAMLprim value caml_p_servent_s_port( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct servent*)(Nativeint_val(x)))->s_port) );
+}
+CAMLprim value caml_p_servent_s_proto( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct servent*)(Nativeint_val(x)))->s_proto) );
+}
+CAMLprim value caml_p_protoent_p_name( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct protoent*)(Nativeint_val(x)))->p_name) );
+}
+CAMLprim value caml_p_protoent_p_aliases( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct protoent*)(Nativeint_val(x)))->p_aliases) );
+}
+CAMLprim value caml_p_protoent_p_proto( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct protoent*)(Nativeint_val(x)))->p_proto) );
+}
+CAMLprim value caml_p_addrinfo_ai_flags( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_flags) );
+}
+CAMLprim value caml_p_addrinfo_ai_family( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_family) );
+}
+CAMLprim value caml_p_addrinfo_ai_socktype( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_socktype) );
+}
+CAMLprim value caml_p_addrinfo_ai_protocol( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_protocol) );
+}
+CAMLprim value caml_p_addrinfo_ai_addrlen( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_addrlen) );
+}
+CAMLprim value caml_p_addrinfo_ai_addr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_addr) );
+}
+CAMLprim value caml_p_addrinfo_ai_canonname( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_canonname) );
+}
+CAMLprim value caml_p_addrinfo_ai_next( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct addrinfo*)(Nativeint_val(x)))->ai_next) );
+}
+CAMLprim value caml_p_ei_cnode_s_thishostname( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_cnode_s*)(Nativeint_val(x)))->thishostname) );
+}
+CAMLprim value caml_p_ei_cnode_s_thisnodename( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_cnode_s*)(Nativeint_val(x)))->thisnodename) );
+}
+CAMLprim value caml_p_ei_cnode_s_thisalivename( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_cnode_s*)(Nativeint_val(x)))->thisalivename) );
+}
+CAMLprim value caml_p_ei_cnode_s_ei_connect_cookie( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_cnode_s*)(Nativeint_val(x)))->ei_connect_cookie) );
+}
+CAMLprim value caml_p_ei_cnode_s_creation( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_cnode_s*)(Nativeint_val(x)))->creation) );
+}
+CAMLprim value caml_p_ei_cnode_s_self( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_cnode_s*)(Nativeint_val(x)))->self) );
+}
+CAMLprim value caml_p_ei_x_buff_TAG_buff( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_x_buff_TAG*)(Nativeint_val(x)))->buff) );
+}
+CAMLprim value caml_p_ei_x_buff_TAG_buffsz( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_x_buff_TAG*)(Nativeint_val(x)))->buffsz) );
+}
+CAMLprim value caml_p_ei_x_buff_TAG_index( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_x_buff_TAG*)(Nativeint_val(x)))->index) );
+}
+CAMLprim value caml_p_bucket_s_rawhash( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct bucket_s*)(Nativeint_val(x)))->rawhash) );
+}
+CAMLprim value caml_p_bucket_s_key( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct bucket_s*)(Nativeint_val(x)))->key) );
+}
+CAMLprim value caml_p_bucket_s_keybuf( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct bucket_s*)(Nativeint_val(x)))->keybuf) );
+}
+CAMLprim value caml_p_bucket_s_value( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct bucket_s*)(Nativeint_val(x)))->value) );
+}
+CAMLprim value caml_p_bucket_s_next( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct bucket_s*)(Nativeint_val(x)))->next) );
+}
+CAMLprim value caml_p_ei_reg_inode_attr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_inode*)(Nativeint_val(x)))->attr) );
+}
+CAMLprim value caml_p_ei_reg_inode_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_inode*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_ei_reg_inode_val( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_inode*)(Nativeint_val(x)))->val) );
+}
+CAMLprim value caml_p_ei_reg_inode_next( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_inode*)(Nativeint_val(x)))->next) );
+}
+CAMLprim value caml_p_ei_reg_stat_attr( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_stat*)(Nativeint_val(x)))->attr) );
+}
+CAMLprim value caml_p_ei_reg_stat_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_stat*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_ei_reg_tabstat_size( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_tabstat*)(Nativeint_val(x)))->size) );
+}
+CAMLprim value caml_p_ei_reg_tabstat_nelem( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_tabstat*)(Nativeint_val(x)))->nelem) );
+}
+CAMLprim value caml_p_ei_reg_tabstat_npos( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_tabstat*)(Nativeint_val(x)))->npos) );
+}
+CAMLprim value caml_p_ei_reg_tabstat_collisions( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct ei_reg_tabstat*)(Nativeint_val(x)))->collisions) );
+}
+CAMLprim value caml_p__eterm_uval( value x ){
+	CAMLparam1( x );
+	CAMLreturn( caml_copy_nativeint((long)&((struct _eterm*)(Nativeint_val(x)))->uval) );
 }
