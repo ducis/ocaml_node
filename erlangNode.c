@@ -1083,10 +1083,6 @@ CAMLprim value caml_p_fd_set___fds_bits( value x ){
 	CAMLparam1( x );
 	CAMLreturn( caml_copy_nativeint((long)&((fd_set*)(Nativeint_val(x)))->__fds_bits) );
 }
-CAMLprim value caml_p_pthread_mutex_t___data( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((pthread_mutex_t*)(Nativeint_val(x)))->__data) );
-}
 CAMLprim value caml_p_pthread_mutex_t___size( value x ){
 	CAMLparam1( x );
 	CAMLreturn( caml_copy_nativeint((long)&((pthread_mutex_t*)(Nativeint_val(x)))->__size) );
@@ -1771,38 +1767,6 @@ CAMLprim value caml_p___pthread_internal_list___next( value x ){
 	CAMLparam1( x );
 	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_internal_list*)(Nativeint_val(x)))->__next) );
 }
-CAMLprim value caml_p___pthread_mutex_s___lock( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__lock) );
-}
-CAMLprim value caml_p___pthread_mutex_s___count( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__count) );
-}
-CAMLprim value caml_p___pthread_mutex_s___owner( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__owner) );
-}
-CAMLprim value caml_p___pthread_mutex_s___nusers( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__nusers) );
-}
-CAMLprim value caml_p___pthread_mutex_s___kind( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__kind) );
-}
-CAMLprim value caml_p___pthread_mutex_s___spins( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__spins) );
-}
-CAMLprim value caml_p___pthread_mutex_s___elision( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__elision) );
-}
-CAMLprim value caml_p___pthread_mutex_s___list( value x ){
-	CAMLparam1( x );
-	CAMLreturn( caml_copy_nativeint((long)&((struct __pthread_mutex_s*)(Nativeint_val(x)))->__list) );
-}
 CAMLprim value caml_p_iovec_iov_base( value x ){
 	CAMLparam1( x );
 	CAMLreturn( caml_copy_nativeint((long)&((struct iovec*)(Nativeint_val(x)))->iov_base) );
@@ -2262,4 +2226,424 @@ CAMLprim value caml_p_ei_reg_tabstat_collisions( value x ){
 CAMLprim value caml_p__eterm_uval( value x ){
 	CAMLparam1( x );
 	CAMLreturn( caml_copy_nativeint((long)&((struct _eterm*)(Nativeint_val(x)))->uval) );
+}
+CAMLprim value caml_with___fsid_t( value f ){
+	CAMLparam1( f );
+	__fsid_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with___mbstate_t( value f ){
+	CAMLparam1( f );
+	__mbstate_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with__G_fpos_t( value f ){
+	CAMLparam1( f );
+	_G_fpos_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with__G_fpos64_t( value f ){
+	CAMLparam1( f );
+	_G_fpos64_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with___sigset_t( value f ){
+	CAMLparam1( f );
+	__sigset_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_fd_set( value f ){
+	CAMLparam1( f );
+	fd_set x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_mutex_t( value f ){
+	CAMLparam1( f );
+	pthread_mutex_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_mutexattr_t( value f ){
+	CAMLparam1( f );
+	pthread_mutexattr_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_cond_t( value f ){
+	CAMLparam1( f );
+	pthread_cond_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_condattr_t( value f ){
+	CAMLparam1( f );
+	pthread_condattr_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_rwlock_t( value f ){
+	CAMLparam1( f );
+	pthread_rwlock_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_rwlockattr_t( value f ){
+	CAMLparam1( f );
+	pthread_rwlockattr_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_barrier_t( value f ){
+	CAMLparam1( f );
+	pthread_barrier_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_barrierattr_t( value f ){
+	CAMLparam1( f );
+	pthread_barrierattr_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_erlang_pid( value f ){
+	CAMLparam1( f );
+	erlang_pid x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_erlang_port( value f ){
+	CAMLparam1( f );
+	erlang_port x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_erlang_ref( value f ){
+	CAMLparam1( f );
+	erlang_ref x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_erlang_trace( value f ){
+	CAMLparam1( f );
+	erlang_trace x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_erlang_msg( value f ){
+	CAMLparam1( f );
+	erlang_msg x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_erlang_fun( value f ){
+	CAMLparam1( f );
+	erlang_fun x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_erlang_big( value f ){
+	CAMLparam1( f );
+	erlang_big x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_term( value f ){
+	CAMLparam1( f );
+	ei_term x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ErlConnect( value f ){
+	CAMLparam1( f );
+	ErlConnect x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_hash( value f ){
+	CAMLparam1( f );
+	ei_hash x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_reg( value f ){
+	CAMLparam1( f );
+	ei_reg x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Header( value f ){
+	CAMLparam1( f );
+	Erl_Header x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Integer( value f ){
+	CAMLparam1( f );
+	Erl_Integer x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Uinteger( value f ){
+	CAMLparam1( f );
+	Erl_Uinteger x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_LLInteger( value f ){
+	CAMLparam1( f );
+	Erl_LLInteger x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_ULLInteger( value f ){
+	CAMLparam1( f );
+	Erl_ULLInteger x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Float( value f ){
+	CAMLparam1( f );
+	Erl_Float x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Atom_data( value f ){
+	CAMLparam1( f );
+	Erl_Atom_data x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Atom( value f ){
+	CAMLparam1( f );
+	Erl_Atom x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Pid( value f ){
+	CAMLparam1( f );
+	Erl_Pid x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Port( value f ){
+	CAMLparam1( f );
+	Erl_Port x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Ref( value f ){
+	CAMLparam1( f );
+	Erl_Ref x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Big( value f ){
+	CAMLparam1( f );
+	Erl_Big x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_List( value f ){
+	CAMLparam1( f );
+	Erl_List x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_EmptyList( value f ){
+	CAMLparam1( f );
+	Erl_EmptyList x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Tuple( value f ){
+	CAMLparam1( f );
+	Erl_Tuple x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Binary( value f ){
+	CAMLparam1( f );
+	Erl_Binary x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Variable( value f ){
+	CAMLparam1( f );
+	Erl_Variable x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_Erl_Function( value f ){
+	CAMLparam1( f );
+	Erl_Function x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ErlMessage( value f ){
+	CAMLparam1( f );
+	ErlMessage x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with__IO_marker( value f ){
+	CAMLparam1( f );
+	struct _IO_marker x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with__IO_FILE( value f ){
+	CAMLparam1( f );
+	struct _IO_FILE x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_timespec( value f ){
+	CAMLparam1( f );
+	struct timespec x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_timeval( value f ){
+	CAMLparam1( f );
+	struct timeval x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_pthread_attr_t( value f ){
+	CAMLparam1( f );
+	union pthread_attr_t x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with___pthread_internal_list( value f ){
+	CAMLparam1( f );
+	struct __pthread_internal_list x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_iovec( value f ){
+	CAMLparam1( f );
+	struct iovec x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_sockaddr( value f ){
+	CAMLparam1( f );
+	struct sockaddr x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_sockaddr_storage( value f ){
+	CAMLparam1( f );
+	struct sockaddr_storage x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_msghdr( value f ){
+	CAMLparam1( f );
+	struct msghdr x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_cmsghdr( value f ){
+	CAMLparam1( f );
+	struct cmsghdr x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_linger( value f ){
+	CAMLparam1( f );
+	struct linger x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_osockaddr( value f ){
+	CAMLparam1( f );
+	struct osockaddr x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_in_addr( value f ){
+	CAMLparam1( f );
+	struct in_addr x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_in6_addr( value f ){
+	CAMLparam1( f );
+	struct in6_addr x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_sockaddr_in( value f ){
+	CAMLparam1( f );
+	struct sockaddr_in x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_sockaddr_in6( value f ){
+	CAMLparam1( f );
+	struct sockaddr_in6 x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ip_mreq( value f ){
+	CAMLparam1( f );
+	struct ip_mreq x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ip_mreq_source( value f ){
+	CAMLparam1( f );
+	struct ip_mreq_source x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ipv6_mreq( value f ){
+	CAMLparam1( f );
+	struct ipv6_mreq x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_group_req( value f ){
+	CAMLparam1( f );
+	struct group_req x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_group_source_req( value f ){
+	CAMLparam1( f );
+	struct group_source_req x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ip_msfilter( value f ){
+	CAMLparam1( f );
+	struct ip_msfilter x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_group_filter( value f ){
+	CAMLparam1( f );
+	struct group_filter x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ip_opts( value f ){
+	CAMLparam1( f );
+	struct ip_opts x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ip_mreqn( value f ){
+	CAMLparam1( f );
+	struct ip_mreqn x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_in_pktinfo( value f ){
+	CAMLparam1( f );
+	struct in_pktinfo x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_rpcent( value f ){
+	CAMLparam1( f );
+	struct rpcent x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_netent( value f ){
+	CAMLparam1( f );
+	struct netent x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_hostent( value f ){
+	CAMLparam1( f );
+	struct hostent x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_servent( value f ){
+	CAMLparam1( f );
+	struct servent x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_protoent( value f ){
+	CAMLparam1( f );
+	struct protoent x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_addrinfo( value f ){
+	CAMLparam1( f );
+	struct addrinfo x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_cnode_s( value f ){
+	CAMLparam1( f );
+	struct ei_cnode_s x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_x_buff_TAG( value f ){
+	CAMLparam1( f );
+	struct ei_x_buff_TAG x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_bucket_s( value f ){
+	CAMLparam1( f );
+	struct bucket_s x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_reg_inode( value f ){
+	CAMLparam1( f );
+	struct ei_reg_inode x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_reg_stat( value f ){
+	CAMLparam1( f );
+	struct ei_reg_stat x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with_ei_reg_tabstat( value f ){
+	CAMLparam1( f );
+	struct ei_reg_tabstat x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
+}
+CAMLprim value caml_with__eterm( value f ){
+	CAMLparam1( f );
+	struct _eterm x;
+	CAMLreturn( caml_callback(f,caml_copy_nativeint((long)&x)) );
 }
